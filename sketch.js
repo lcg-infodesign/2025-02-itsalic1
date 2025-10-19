@@ -6,7 +6,7 @@ function preload() {
 
 function setup() {
   //aggiungo un'altezza per l'inserimento del titolo
-  let titleHeight = 105;
+  let titleHeight = 100;
   //sommo conteggiando anche lo spazio occupato dal titolo
   let outerPadding = 20 + titleHeight;
   let padding = 45;
@@ -70,7 +70,7 @@ function setup() {
 }
 
 function draw() {
-  fill(0, 10, 150);
+  fill(0, 0, 150);
   noStroke();
   textStyle(BOLD);
   push();
@@ -119,6 +119,23 @@ function drawTile(xPos, yPos, itemSize, myValue, value2Mapped) {
   strokeWeight(1);
   stroke("black");
 
+  /* passaggio per LINEE VERTICALI ED ORIZZONTALI 
+  nel caso in cui il numero è primo, si appoggia alla funzione e disegna una linea verticale
+  contrariamente, si ha una linea orizzontale */
+  if (isPrime(myValue)) {
+    push();
+    stroke("black");
+    strokeWeight(1);
+    line(xPos + itemSize / 2, yPos, xPos + itemSize / 2, yPos + itemSize);
+    pop();
+  } else {
+    push();
+    stroke("black");
+    strokeWeight(1);
+    line(xPos, yPos + itemSize / 2, xPos + itemSize, yPos + itemSize / 2);
+    pop();
+  }
+
   /* passaggio per LINEA DIAGONALE 
   se il valore è divisibile per 3, va da SX verso DX
   - con coord + itemSize trovo il punto finale della linea */
@@ -156,4 +173,14 @@ function drawTile(xPos, yPos, itemSize, myValue, value2Mapped) {
     rect(0, 0, itemSize * 0.5, itemSize * 0.5);
     pop();
   }
+}
+
+/* funzione per verificare
+se il numero è PRIMO */
+function isPrime(n) {
+  if (n <= 1) return false;
+  for (let i = 2; i <= sqrt(n); i++) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }
