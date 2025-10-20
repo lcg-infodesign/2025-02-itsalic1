@@ -77,7 +77,7 @@ function draw() {
   textSize(28);
   textFont('Segoe Script');
   textAlign(CENTER);
-  text("Glifi generativi", width / 2, 40);
+  text("Generazione di glifi", width / 2, 40);
   pop();
   textSize(20)
   textFont('Georgia');
