@@ -104,8 +104,8 @@ function drawTile(xPos, yPos, itemSize, myValue, value2Mapped) {
   } else {
     push();
     translate(xPos + itemSize / 2, yPos + itemSize / 2);
-    // ruota di 45 gradi le coordinate - ROTATE richiede in RADIANTI
-    rotate(radians(45));
+    // ruota di 45 gradi le coordinate - ROTATE richiede in RADIANTI se esp.
+    rotate(QUARTER_PI);
     rectMode(CENTER);
     fill("whitesmoke");
     rect(0, 0, itemSize + 20, itemSize + 20);
@@ -166,7 +166,7 @@ function drawTile(xPos, yPos, itemSize, myValue, value2Mapped) {
   } else {
     push();
     translate(xPos + itemSize / 2, yPos + itemSize / 2);
-    rotate(radians(45));
+    rotate(QUARTER_PI);
     rectMode(CENTER);
     fill("yellow");
     stroke(0.5);
